@@ -94,7 +94,7 @@ function theEnd() {
     document.getElementById('auto').disabled = true
     running=false
 }
-function nextmatrix() {
+function nextgeneration() {
     for (var i = 0; i < m; i++) {
         for (var j = 0; j < n; j++) {
             var id = 'r' + i + 'c' + j
@@ -123,13 +123,10 @@ function nextmatrix() {
             }
         }
     }
-    return thematrix1
+    thematrix=thematrix1
+    
+}
 
-}
-function nextgeneration(){
-    nextmatrix
-    thematrix=thematrix
-}
 
 function autorun(){
     if(!running){

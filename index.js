@@ -80,11 +80,13 @@ function isEnd(){
         for (var j = 0; j < n; j++) {
             var id = 'r' + i + 'c' + j
             if(thematrix1[id]!=thematrix[id]){
+                console.log(i,j)
                 return false
             }
         }
     }
     if(ans){
+        console.log('end')
         return true
     }
 }
@@ -94,7 +96,7 @@ function theEnd() {
     document.getElementById('auto').disabled = true
     running=false
 }
-function nextgeneration() {
+function nextmatrix() {
     for (var i = 0; i < m; i++) {
         for (var j = 0; j < n; j++) {
             var id = 'r' + i + 'c' + j
@@ -104,46 +106,62 @@ function nextgeneration() {
             if (thematrix[id]) {
                 if (findadj(i, j) == 2 || findadj(i, j) == 3) {
                     thematrix1[id] = 1
-                    document.getElementById(id).style.backgroundColor = 'red'
+                    //document.getElementById(id).style.backgroundColor = 'red'
                 }
                 else {
                     thematrix1[id] = 0
-                    document.getElementById(id).style.backgroundColor = 'white'
+                    //document.getElementById(id).style.backgroundColor = 'white'
                 }
             }
             else {
                 if (findadj(i, j) == 3) {
                     thematrix1[id] = 1
-                    document.getElementById(id).style.backgroundColor = 'red'
+                    //document.getElementById(id).style.backgroundColor = 'red'
                 }
                 else {
                     thematrix1[id] = 0
+                    //document.getElementById(id).style.backgroundColor = 'white'
+                }
+            }
+        }
+    }
+}
+var auto1
+function nextgeneration(){
+    console.log('next')
+    nextmatrix()
+    if(isEnd()){
+        clearInterval(auto1)
+        theEnd()
+    }
+    else{
+        thematrix=thematrix1
+        thematrix1={}
+        for (var i = 0; i < m; i++) {
+            for (var j = 0; j < n; j++) {
+                var id = 'r' + i + 'c' + j
+                if (thematrix[id]){
+                    document.getElementById(id).style.backgroundColor = 'red'
+                }
+                else{
                     document.getElementById(id).style.backgroundColor = 'white'
                 }
             }
         }
     }
-    thematrix=thematrix1
-    
 }
-
 
 function autorun(){
     if(!running){
         running=true
         document.getElementById('next').disabled=true
         document.getElementById('auto').innerText='Stop'
-        
-        var autorun1= setInterval(nextgeneration(),1000)
-        if(isEnd()){
-            clearInterval(autorun1)
-        }
-        
+        auto1=setInterval(nextgeneration,1000)
     }
     else{
+        clearInterval(auto1)
         running=false
         document.getElementById('next').disabled=false
         document.getElementById('auto').innerText='Auto'
     }
-    
 }

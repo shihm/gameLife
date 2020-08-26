@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="whole">
+        <div id='expl'>
+            <h1>
+                Conway's Game of Life
+            </h1>
+            <div>
+                <h3>Rules</h3>
+                <p>1. Any live cell with two or three live neighbours survives.</p>
+                <p>2. Any dead cell with three live neighbours becomes a live cell.</p>
+                <p>3. All other live cells die in the next generation. Similarly, all other dead cells stay dead.</p>
+            </div>
+            <div style="display: flex;">
+                <button id='next' class="cntr" onclick="nextgeneration()">Next</button>
+                <button id='auto' class="cntr" onclick="autorun()">Auto</button>
+            </div>
+        </div>
+        <div id='grids' class="grids"></div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

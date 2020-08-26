@@ -1,0 +1,20 @@
+.grids{
+    margin-left: 20px;
+}
+.gridrow{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.deadcell{
+    height: 20px;
+    width: 20px;
+    background-color: white;
+    border-collapse: collapse;
+}
+.cntr{
+    margin:20px;
+    padding: 10px;
+    font-size: 30px;
+}

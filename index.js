@@ -1,7 +1,7 @@
 var ww = screen.availWidth
 var hh = screen.availHeight
-m = 30
-n = 30
+m = 40
+n = 40
 if (ww > hh) {
     document.getElementById('whole').style = 'display:flex'
     document.getElementById('grids').style = 'width=' + hh
